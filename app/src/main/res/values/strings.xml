@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">APK Builder</string>
+    <string name="tab_templates">Templates</string>
+    <string name="tab_projects">My Projects</string>
+    <string name="tab_settings">Settings</string>
+    <string name="action_build">Build APK</string>
+    <string name="action_preview">Preview</string>
+    <string name="action_save">Save</string>
+    <string name="abi_32">32-bit only (smaller, older devices)</string>
+    <string name="abi_64">64-bit only (modern devices)</string>
+    <string name="abi_universal">Universal (32 + 64-bit)</string>
+    <string name="install_apk">Install APK</string>
+</resources>

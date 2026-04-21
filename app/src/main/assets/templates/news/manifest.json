@@ -1,0 +1,2 @@
+{ "id": "news", "name": "News / Blog", "minSdk": 21,
+  "customizable": { "appName": true, "primaryColor": true, "tabs": true, "icon": true } }

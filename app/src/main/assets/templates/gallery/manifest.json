@@ -1,0 +1,2 @@
+{ "id": "gallery", "name": "Photo Gallery", "minSdk": 21,
+  "customizable": { "appName": true, "primaryColor": true, "images": true, "icon": true } }

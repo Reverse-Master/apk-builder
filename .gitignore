@@ -1,0 +1,19 @@
+# Gradle / Android build output
+.gradle/
+build/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Keystores - never commit signing material
+*.jks
+*.keystore
+!app/src/main/assets/templates/**/*.keystore

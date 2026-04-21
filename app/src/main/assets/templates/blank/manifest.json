@@ -1,0 +1,9 @@
+{
+  "id": "blank",
+  "name": "Blank App",
+  "minSdk": 21,
+  "customizable": {
+    "appName": true, "primaryColor": true, "accentColor": true,
+    "backgroundColor": true, "headerTitle": true, "icon": true, "splash": true
+  }
+}

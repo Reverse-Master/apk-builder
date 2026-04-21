@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ApkBuilder" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/seed</item>
+        <item name="android:windowBackground">@color/surface</item>
+    </style>
+</resources>

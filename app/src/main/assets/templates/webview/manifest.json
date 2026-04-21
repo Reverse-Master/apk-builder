@@ -1,0 +1,2 @@
+{ "id": "webview", "name": "Website Wrapper", "minSdk": 21,
+  "customizable": { "appName": true, "primaryColor": true, "url": true, "icon": true } }

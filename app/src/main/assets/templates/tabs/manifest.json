@@ -1,0 +1,9 @@
+{
+  "id": "tabs",
+  "name": "Tabbed App",
+  "minSdk": 21,
+  "customizable": {
+    "appName": true, "primaryColor": true, "accentColor": true, "tabs": true,
+    "headerTitle": true, "icon": true
+  }
+}

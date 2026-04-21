@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "templates": [
+    { "id": "blank",   "name": "Blank App",       "category": "Starter" },
+    { "id": "tabs",    "name": "Tabbed App",      "category": "Navigation" },
+    { "id": "webview", "name": "Website Wrapper", "category": "Utility" },
+    { "id": "gallery", "name": "Photo Gallery",   "category": "Media" },
+    { "id": "audio",   "name": "Audio Player",    "category": "Media" },
+    { "id": "news",    "name": "News / Blog",     "category": "Content" }
+  ]
+}

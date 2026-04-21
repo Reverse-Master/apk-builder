@@ -1,0 +1,98 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.apkbuilder.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.apkbuilder.app"
+        // minSdk 21 keeps us compatible with very old phones; 32-bit (armeabi-v7a/x86)
+        // and 64-bit (arm64-v8a/x86_64) devices are both supported.
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        // The APK Builder app itself must run on every ABI Android supports.
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+        vectorDrawables { useSupportLibrary true }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Compose UI for a modern, lightweight, fully-Kotlin codebase.
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.10'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+
+    // Bundle template APKs as raw assets without any compression so we can
+    // open them with ZipFile at runtime for fast random access.
+    androidResources {
+        noCompress += ['apk']
+    }
+
+    packaging {
+        resources.excludes += [
+            'META-INF/AL2.0',
+            'META-INF/LGPL2.1',
+            'META-INF/DEPENDENCIES',
+            'META-INF/LICENSE',
+            'META-INF/LICENSE.txt',
+            'META-INF/NOTICE',
+            'META-INF/NOTICE.txt'
+        ]
+    }
+}
+
+// org.json is provided by the Android platform. If any transitive dep pulls it
+// in, AGP 8.x's R8/D8 will fail with a "Duplicate class" error. Drop it
+// everywhere so the Android one always wins.
+configurations.configureEach {
+    exclude group: 'org.json', module: 'json'
+}
+
+dependencies {
+    // Compose BOM keeps all Compose libraries on the same version.
+    implementation platform('androidx.compose:compose-bom:2024.02.01')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.material:material-icons-extended'
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0'
+    implementation 'androidx.navigation:navigation-compose:2.7.7'
+
+    // org.json is part of android.jar — no need to add the desktop one. Doing
+    // so causes "Duplicate class" errors on AGP 8.x.
+
+    // On-device APK signing (v1 + v2 + v3 schemes). Provided by Google as part
+    // of the Android tools — small, ABI-agnostic, runs on any device.
+    implementation 'com.android.tools.build:apksig:8.2.2'
+    // Bouncy Castle for generating the self-signed keystore used to sign output APKs.
+    implementation 'org.bouncycastle:bcpkix-jdk15to18:1.77'
+
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+}

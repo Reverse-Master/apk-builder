@@ -1,0 +1,2 @@
+{ "id": "audio", "name": "Audio Player", "minSdk": 21,
+  "customizable": { "appName": true, "primaryColor": true, "audio": true, "icon": true } }
