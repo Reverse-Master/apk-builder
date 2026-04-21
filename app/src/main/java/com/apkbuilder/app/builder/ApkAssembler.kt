@@ -20,7 +20,7 @@ import java.util.zip.ZipOutputStream
  *   1. Copy `assets/templates/<id>/template.apk` to a working file.
  *   2. Re-pack the zip, replacing user-customisable entries:
  *        - assets/config.json   : user config (read by template at runtime)
- *        - assets/branding/*    : icon, splash, audio
+ *        - assets/branding/...  : icon, splash, audio
  *        - resources.arsc       : left untouched (template handles theming via config)
  *      and stripping native libraries that don't match the chosen [AbiTarget].
  *   3. Sign the result with [KeystoreManager]'s key (v1 + v2 schemes so it
